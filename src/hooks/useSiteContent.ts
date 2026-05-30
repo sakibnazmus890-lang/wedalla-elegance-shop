@@ -24,7 +24,7 @@ export function useSiteContent(section: string, defaults: Record<string, string>
     listeners.add(setMap);
     if (!cache) load();
     const channel = supabase
-      .channel("site_content_changes")
+      .channel(`site_content_changes_${Math.random().toString(36).slice(2)}`)
       .on("postgres_changes", { event: "*", schema: "public", table: "site_content" }, () => load())
       .subscribe();
     return () => {
