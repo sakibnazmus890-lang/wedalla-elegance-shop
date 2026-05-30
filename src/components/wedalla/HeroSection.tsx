@@ -1,6 +1,12 @@
 import heroImg from "@/assets/hero-event.jpg";
+import { useSiteContent } from "@/hooks/useSiteContent";
 
 const HeroSection = () => {
+  const c = useSiteContent("hero", {
+    title: "We don't just decorate weddings — we build dreams",
+    subtitle: "Crafting unforgettable moments with elegance, passion, and cinematic precision",
+    cta: "Book Now",
+  });
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background image with overlay */}
@@ -29,17 +35,16 @@ const HeroSection = () => {
           Wedalla Event Planner
         </p>
         <h1 className="heading-display font-display text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight mb-8 animate-fade-up-delay-1 text-foreground">
-          We don't just decorate weddings —{" "}
-          <span className="gradient-text">we build dreams</span>
+          {c.title}
         </h1>
         <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 animate-fade-up-delay-2">
-          Crafting unforgettable moments with elegance, passion, and cinematic precision
+          {c.subtitle}
         </p>
         <a
           href="#contact"
           className="inline-block btn-glow px-10 py-4 rounded-full text-primary-foreground font-semibold text-lg tracking-wide animate-fade-up-delay-3"
         >
-          Book Now
+          {c.cta}
         </a>
       </div>
 
